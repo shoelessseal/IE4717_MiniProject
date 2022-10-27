@@ -19,3 +19,43 @@
             </div>
         </nav>
     </header>
+    <table border="1">
+        <tr>
+            <th>Company Name</th>
+            <td>JKL Cinema</td>
+        </tr>
+        <tr>
+            <th>Office Email Address</th>
+            <td><a href = "mailto: JKLC@localhost">JKLC@localhost</a></td>
+        </tr>
+        <tr>
+            <th>Office Tel No.</th>
+            <td>9999 9999</td>
+        </tr>
+        <tr>
+            <th>Office Location</th>
+            <td>50 Nanyang Ave, 639798</td>
+        </tr>
+        <tr>
+            <th>Operating Hours</th>
+            <td>0800-1800</td>
+        </tr>
+    </table><br>
+    <h2>Enquiries</h2>
+    <form method="post" action="contactus.php">
+        <label for="username">Name: </label>
+        <input type="text" id="username" name="username">
+        <label for="ContactNo">Contact No: </label>
+        <input type="tel" id="ContactNo" name="ContactNo"><br><br>
+        <label for="Email">Email Address: </label>
+        <input type="email" id="Email" name="Email">
+        <label for="Enquiry">Enquiry Type: </label>
+        <select id="Enquiry" name="Enquiry">
+            <option value="Others">Others: </option>
+        </select><br><br>
+        <label for="Desc">Description: </label>
+        <input type="text" id="Desc" name="Desc">
+        <input type="button" id="submit" name="submit" value="Submit">
+    </form>
+</body>
+</html>
