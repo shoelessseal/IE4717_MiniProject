@@ -67,8 +67,21 @@ nav a {
     padding: 20px 0;
 }
 .shows-buy-ticket{
-    color: #e45d31;
-    
+    color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 10px;
+
+    position: absolute;
+    width: 186px;
+    height: 77px;
+    left: 35px;
+    top: 642px;
+    background: #E45D31;
+    border-radius: 8px;
+
 }
 .show-details-info{
     padding: 10px 0;
