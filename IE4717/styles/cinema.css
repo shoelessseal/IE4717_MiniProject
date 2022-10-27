@@ -70,15 +70,15 @@ nav a {
     color: #ffffff;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
     padding: 24px;
     gap: 10px;
 
     position: absolute;
-    width: 186px;
-    height: 77px;
     left: 35px;
     top: 642px;
+
     background: #E45D31;
     border-radius: 8px;
 
