@@ -1,18 +1,20 @@
 body{
     background-attachment: fixed;
-    background-color: #558f55;
+    background-color: #061018;
     min-height: 100px;
     display: flex;
     flex-direction: column;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-}
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+    }
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
   header {
-    background-color: #127475
+    background-color:#131d2c;
+    color:#ffffff;
   }
   
 nav {
@@ -29,11 +31,11 @@ nav {
     text-transform: uppercase;
     margin-right: 100px;
     font-size: var(--fs-logo);
+    color: #e45d31;
   }
   
 .nav-links a:hover {
-    color: #c58383;
-    background-color: #21325e;
+    color: #ffffff;
     background-color: #21325e;
     padding: 20px;
   }
@@ -47,6 +49,6 @@ nav {
 nav a {
     text-decoration: none;
     padding: 0 40px;
-    color: var(--bg-color-light);
+    color: #e45d31;
     font-size: var(--fs-h1);
   }

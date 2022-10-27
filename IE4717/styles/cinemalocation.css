@@ -1,55 +1,58 @@
 body{
-    background-attachment: fixed;
-    background-color: #558f55;
-    min-height: 100px;
-    display: flex;
-    flex-direction: column;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  background-attachment: fixed;
+  background-color: #061018;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color:#ffffff
 }
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  header {
-    background-color: #127475
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+header {
+  background-color: #131d2c;
+  Color:#ffffff;
+}
+
 nav {
-    max-height: 500px;
-    width: 100%;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
+  max-height: 500px;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .nav-heading {
-    font-family: var(--ff-logo);
-    text-transform: uppercase;
-    margin-right: 100px;
-    font-size: var(--fs-logo);
-  }
-  
+  font-family: var(--ff-logo);
+  text-transform: uppercase;
+  margin-right: 100px;
+  font-size: var(--fs-logo);
+  color:#e45d31;
+
+}
+
 .nav-links a:hover {
-    color: #c58383;
-    background-color: #21325e;
-    background-color: #21325e;
-    padding: 20px;
-  }
-  
+  color: #e45d31;
+  background-color: #21325e;
+  padding: 20px;
+}
+
 .nav-links .selected {
-    color: #ffffff;
-    background-color: #2c2e43;
-    padding: 20px;
-  }
-  
+  color: #ffffff;
+  background-color: #2c2e43;
+  padding: 20px;
+}
+
 nav a {
-    text-decoration: none;
-    padding: 0 40px;
-    color: var(--bg-color-light);
-    font-size: var(--fs-h1);
-  }
+  text-decoration: none;
+  padding: 0 40px;
+  color: #e45d31;
+  font-size: var(--fs-h1);
+}
 .cinemalocationbox{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
