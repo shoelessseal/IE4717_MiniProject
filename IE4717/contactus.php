@@ -8,12 +8,15 @@
             $dbname = "JKLC";
 
             @ $db = new mysqli($servername, $username, $password, $dbname);
-			if (mysqli_connect_errno()) {
+			if (mysqli_connect_error()) {
 				 echo "Error: Could not connect to database.  Please try again later.";
 				 exit;
 			}
             $username=$_POST['username'];
             $contactNo=$_POST['ContactNo'];
+            $email=$_POST['Email'];
+            $enquiry=$_POST['Enquiry'];
+            $Descrp=$_POST['Descrp'];
         ?>
     </body>
 </html>

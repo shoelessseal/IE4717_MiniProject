@@ -12,9 +12,9 @@
             <nav>
                 <h1 class="nav-heading">JKL Cinema</h1>
                 <div class="nav-links">
-                    <a href="#" class="selected">Home</a>
+                    <a href="homepage.html" >Home</a>
                 <a href="cinemalocation.html" > Cinema Location</a>
-                <a href="CheckingBooking.php" > Check Booking</a>
+                <a href="CheckingBooking.php" class="selected"> Check Booking</a>
                 <a href="contactus.html" > Contact us</a>
                 </div>
             </nav>
