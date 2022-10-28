@@ -89,3 +89,17 @@ nav a {
     grid-template-columns: 1fr 1fr;
     color: var(--text--color)
 }
+.Select-cinema{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 40px;
+
+  position: absolute;
+  width: 380px;
+  height: 100px;
+  left: 21px;
+  top: 380px;
+}
+
