@@ -17,6 +17,13 @@
             $email=$_POST['Email'];
             $enquiry=$_POST['Enquiry'];
             $Desc=$_POST['Desc'];
+            
+            $sql = "INSERT INTO enquiry(`username`, `Contact No`, `Email`, `Enquiry`, `Descrp`) 
+            VALUES ('$username','$contactNo','$email','$enquiry','$Desc')";
+
+            echo $sql;
+            $db -> query($sql) ;
+            
         ?>
     </body>
 </html>
