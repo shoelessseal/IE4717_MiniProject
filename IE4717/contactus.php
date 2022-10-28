@@ -16,7 +16,7 @@
             $contactNo=$_POST['ContactNo'];
             $email=$_POST['Email'];
             $enquiry=$_POST['Enquiry'];
-            $Descrp=$_POST['Descrp'];
+            $Desc=$_POST['Desc'];
         ?>
     </body>
 </html>
