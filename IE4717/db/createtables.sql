@@ -28,8 +28,7 @@ create table timeSlots
 	movieID int unsigned not null auto_increment primary key,
 	movieName char(50) not null,
 	timeSlotsStart int unsigned not null,
-	timeSlotEnd int unsigned not null,
-    movieName char(50) not null
+	timeSlotEnd int unsigned not null
 );
 create table enquiries
 (
