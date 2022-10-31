@@ -15,15 +15,17 @@
             $username=$_POST['username'];
             $contactNo=$_POST['ContactNo'];
             $email=$_POST['Email'];
-            $enquiry=$_POST['Enquiry'];
+            $enqType=$_POST['Enquiry'];
             $Desc=$_POST['Desc'];
-            
-            $sql = "INSERT INTO enquiry(`username`, `Contact No`, `Email`, `Enquiry`, `Descrp`) 
-            VALUES ('$username','$contactNo','$email','$enquiry','$Desc')";
+            $date = date('y-m-d');
+
+            $sql = "INSERT INTO enquiries VALUES
+                ('NULL', '".$username."','".$contactNo."','".$email."','".$enqType."', '".$date."', '".$Desc."')";
 
             echo $sql;
             $db -> query($sql) ;
             
+            $db->close();
         ?>
     </body>
 </html>
