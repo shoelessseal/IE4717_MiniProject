@@ -124,3 +124,7 @@ padding: 20px;
   border-left: 100px solid transparent;
   border-right: 100px solid transparent;
 }
+.flex-child-element{
+  float: left;
+  margin: 50%;
+}

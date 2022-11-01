@@ -22,7 +22,6 @@ create table movies
 	movieDate date not null,
 	movieLanguage char(100) not null,
 	duration int not null,
-	ticketPrice float(4,2) not null,
 	synopsis text not null
 );
 create table locations
@@ -48,12 +47,11 @@ create table enquiries
 	enqType char(30) not null,
 	enqDate date not null,
 	enqDesc text not null
-)
+);
 
 create table shoppingCart
 (
-	customerName char(50) not null,
-	customerEMAIL char(50) not null,
+	itemID int unsigned not null auto_increment primary key,
 	movieName char(50) not null,
 	locationAndTime char(75) not null,
 	showDate date not null,

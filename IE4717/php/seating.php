@@ -25,15 +25,16 @@
         $QTY = $_POST["Qty"];
         $locationAndTime = $_POST["TimeSlotRadio"];
 
-        $query_get = "SELECT ticketPrice FROM movies WHERE movieName= 'Black Adam'";
+        $query_get = "SELECT price FROM movies WHERE movieName= 'Black Adam'";
         $query_result  = mysqli_query($db, $query_get);
         $ticketPrice  = mysqli_fetch_array($query_result);
-
+        $totalPrice = floatval($ticketPrice[0]) * intval($QTY);
+        
         $query_get = "SELECT image_PathLocation FROM movies WHERE movieName= 'Black Adam'";
         $query_result  = mysqli_query($db, $query_get);
         $img_path  = mysqli_fetch_array($query_result);
         
-        $db->close();
+        
         ?>
         <header>
             <nav>
@@ -59,16 +60,28 @@
                     <div id="Qty" style="display: none;">
                         <?php echo $QTY; ?>
                     </div>
+                    <div id="locationAndTime" style="display: none;">
+                        <?php echo $locationAndTime; ?>
+                    </div>
                     <!-- (A) SEAT LAYOUT -->
                     <div id="layout"></div>
  
                     <!-- (B) LEGEND -->
                     <div id="legend">
-                    <div class="seat"></div> <div class="txt">Available</div>
-                    <div class="seat taken"></div> <div class="txt">Taken</div>
-                    <div class="seat selected"></div> <div class="txt">Your Chosen Seats</div>
+                        <div class="seat"></div> <div class="txt">Available</div>
+                        <div class="seat taken"></div> <div class="txt">Taken</div>
+                        <div class="seat selected"></div> <div class="txt">Your Chosen Seats</div>
                     </div>
-                    <!-- (C) SAVE SELECTION -->
+                    <br>
+                    <div class="priceContainer" style="margin-left: 95px">
+                            <div class="child-element" style="float: left">Total Price: $</div>
+                                <div id="totalPrice" class="child-element" style="float: left">
+                                    <?php echo $totalPrice; ?>
+                                </div>
+                            
+                    </div>
+                    <br>
+                    
                     <button id="save" onclick="reserve.save()">Add to Cart</button>
                 </div>
                 <div class="show-right-content">
@@ -123,9 +136,11 @@
             save : () => {
                 //GET SELECTED SEATS
                 let selected = document.querySelectorAll("#layout .selected");
-            
+                
+                let count = document.getElementById("Qty").textContent;
+                count = Number(count);
                 //ERROR!
-                if (selected.length == 0) { alert("No seats selected."); }
+                if (selected.length < count) { alert(count + " Seats must be selected"); }
             
                 //SELECTED SEATS
                 else {
@@ -133,27 +148,37 @@
                 let seats = [];
                 for (let s of selected) { seats.push(s.innerHTML); }
                 
-                //DO SOMETHING WITH IT...
+                //POST to AddToCart.php
                 let data = new FormData();
-                let count = document.getElementById("Qty").textContent;
-                count = Number(count);
+                let totalPrice = document.getElementById("totalPrice").textContent;
+                totalPrice - parseFloat(totalPrice);
+                let locationAndTime = document.getElementById("locationAndTime").textContent;
+                locationAndTime = locationAndTime.trim();  
+                //get today's date
+                var today= new Date();
+                // Get year, month, and day part from the date
+                var yyyy = today.toLocaleString("default", { year: "numeric" });
+                var mm = today.toLocaleString("default", { month: "2-digit" });
+                var dd = today.toLocaleString("default", { day: "2-digit" });
+
+                // Generate yyyy-mm-dd date string
+                var formattedDate = yyyy + "-" + mm + "-" + dd;
 
                 data.append("seats", JSON.stringify(seats));
-                data.append("customerName", );
-                data.append("customerEMAIL", );
-                data.append("datePurchased", );
-                data.append("showDate", "2022-11-02");
-                date.append("ticketQty", count);
-                date.append("totalPrice", );
-                date.append("locationAndTime",);
-                date.append("movieName", "Black Adam");
+                data.append("addToCartDate", formattedDate);
+                data.append("showDate", "2022-11-20");
+                data.append("ticketQty", count);
+                data.append("totalPrice", totalPrice);
+                data.append("locationAndTime", locationAndTime);
+                data.append("movieName", "Black Adam");
                 fetch("AddToCart.php", {
                     method: "POST",
                     body : data
                 })
                 .then(res => res.text())
-                .then((txt) => { console.log(txt); });
+                .then((res) => { console.log(res); });
                 }
+                location.href = "http://localhost:8000/IE4717/IE4717_MiniProject/IE4717/Homepage.html";
             }
         };
  
