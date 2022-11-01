@@ -1,86 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FYP project</title>
-    <link rel="stylesheet" href="styles/normalDesign.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles/normalDesign.css" />
+  </head>
+  <body>
     <header>
-        <nav>
-            <h1 class="nav-heading">JKL Cinema</h1>
-            <div class="nav-links">
-                <a href="Homepage.html" >Home</a>
-                <a href="cinemalocation.html" > Cinema Location</a>
-                <a href="CheckingBooking.php" > Check Booking</a>
-                <a href="contactus.html" class="selected"> Contact us</a>
-            </div>
-        </nav>
+      <nav>
+        <h1 class="nav-heading">JKL Cinema</h1>
+        <div class="nav-links">
+          <a href="Homepage.html">Home</a>
+          <a href="cinemalocation.html"> Cinema Location</a>
+          <a href="CheckingBooking.php"> Check Booking</a>
+          <a href="contactus.html" class="selected"> Contact us</a>
+        </div>
+      </nav>
     </header>
-    <table border="1">
-        <tr>
-            <th>Company Name</th>
-            <td>JKL Cinema</td>
-        </tr>
-        <tr>
-            <th>Office Email Address</th>
-            <td><a href = "mailto: JKLC@localhost">JKLC@localhost</a></td>
-        </tr>
-        <tr>
-            <th>Office Tel No.</th>
-            <td>9999 9999</td>
-        </tr>
-        <tr>
-            <th>Office Location</th>
-            <td>50 Nanyang Ave, 639798</td>
-        </tr>
-        <tr>
-            <th>Operating Hours</th>
-            <td>0800-1800</td>
-        </tr>
-    </table><br>
-    <h2>Enquiries</h2>
-    <form method="post" action="contactus.php">
-        <label for="username">Name: </label>
-        <input type="text" id="username" name="username" required >
+    <main class="mainclasscontainer">
+      <div class="leftsidecontainer">
+        <h1 style="padding: 20px">Get in Touch</h1>
+        <p class="Companyname"><strong>Company name:</strong> JKL Cinema</p>
+        <p class="OfficeEmail">
+          <strong>Office Email address:</strong>
+          <a href="mailto: JKLC@localhost" style="color: #e45d31"
+            >JKLC@localhost</a
+          >
+        </p>
+        <p class="OfficeTelnum">
+          <strong>Office Tel number:</strong> 9999 9999
+        </p>
+        <p class="OfficeLocation">
+          <strong>Office Location:</strong> 50 Nanyang Ave, 639798
+        </p>
+        <p class="OperatingHours">
+          <strong>Operating Hours: </strong>0800-2200
+        </p>
+      </div>
 
-        <label for="ContactNo">Contact No: </label>
-        <input type="tel" id="ContactNo" name="ContactNo" required><br><br>
+      <div class="rightsidecontainer">
+        <h2 style="padding: 20px 125px; font-size: xx-large">Enquiries</h2>
+        <form method="post" action="contactus.php">
+          <table>
+            <tr>
+              <!-- <td><label for="username"></label></td> -->
+              <td>
+                <input
+                  class="dark-input"
+                  type="text"
+                  id="username"
+                  name="username"
+                  required
+                  placeholder="Enter your name"
+                />
+              </td>
+              <!-- <td><label for="ContactNo"></label></td> -->
+              <td>
+                <input
+                  class="dark-input"
+                  type="tel"
+                  id="ContactNo"
+                  name="ContactNo"
+                  min="0"
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');"
+                  placeholder="Enter your Contact No"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <!-- <td><label for="Email"></label></td> -->
+              <td>
+                <input
+                  class="dark-input"
+                  type="Email"
+                  id="Email"
+                  name="Email"
+                  required
+                  placeholder="Enter your Email"
+                />
+              </td>
+              <!-- <td><label for="Enquiry"></label></td> -->
+              <td>
+                <select id="Enquiry" name="Enquiry" class="dark-input">
+                  <option value="Others">Others:</option>
+                </select>
+              </td>
+            </tr>
 
-        <label for="Email">Email Address: </label>
-        <input type="Email" id="Email" name="Email" required>
-
-        <label for="Enquiry">Enquiry Type: </label>
-        <select id="Enquiry" name="Enquiry">
-            <option value="Others">Others: </option>
-        </select><br><br>
-
-        <label for="Desc">Description: </label>
-        <input type="text" id="Desc" name="Desc" required>
-        <input type="submit" id="submit" name="submit" value="Submit" >
-    </form>
-
-</body>
-<script> 
-    // function test() {
-    //     var ContactNo = document.getElementById("ContactNo").value;
-    //     var name = document.getElementById("username").value;
-    //     var Email = document.getElementById("Email").value;
-    //     if (!ContactNo.match(/[0-9]|\./)) {
-    //     alert("Only numbers are allowed for your name");
-    //     return false;
-    // } 
-    //  else if (!Email.match(/^[\w.-]+@[\w]+(\.[A-Za-z]{2,3}){1,3}$/)) {
-    //     alert("Email format wrong.");
-    //     return false;
-    // }
-    //     else {
-    //         alert("Thank you, We will contact you shortly.");
-    //         return true;
-    //     }
-    // }
-</script>
-
+            <tr>
+              <!-- <td><label for="Desc"></label></td> -->
+              <td colspan="2">
+                <textarea
+                  class="dark-textarea"
+                  rows="4"
+                  cols="50"
+                  id="Desc"
+                  name="Desc"
+                  required
+                  placeholder="Enter your Description"
+                ></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <input
+                  type="submit"
+                  id="submit"
+                  name="submit"
+                  value="Submit"
+                  class="dark-button"
+                  style="float: right"
+                />
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    </main>
+  </body>
+  <script>
+    function test() {
+      var ContactNo = document.getElementById("ContactNo").value;
+      var name = document.getElementById("username").value;
+      var Email = document.getElementById("Email").value;
+      if (!Email.match(/^[\w.-]+@[\w]+(\.[A-Za-z]{2,3}){1,3}$/)) {
+        alert("Email format wrong.");
+        return false;
+      } else {
+        alert("Thank you, We will contact you shortly.");
+        return true;
+      }
+    }
+  </script>
 </html>
+
+<!-- <table border="1">
+    <tr>
+        <th>Company Name</th>
+        <td>JKL Cinema </td>
+    </tr>
+    <tr>
+        <th>Office Email Address</th>
+        <td><a href = "mailto: JKLC@localhost" style="color:#E45D31">JKLC@localhost</a></td>
+    </tr>
+    <tr>
+        <th>Office Tel No.</th>
+        <td>9999 9999</td>
+    </tr>
+    <tr>
+        <th>Office Location</th>
+        <td>50 Nanyang Ave, 639798</td>
+    </tr>
+    <tr>
+        <th>Operating Hours</th>
+        <td>0800-1800</td>
+    </tr>
+</table><br> -->
