@@ -63,10 +63,10 @@
                     <div id="locationAndTime" style="display: none;">
                         <?php echo $locationAndTime; ?>
                     </div>
-                    <!-- (A) SEAT LAYOUT -->
+                    <!-- SEAT LAYOUT -->
                     <div id="layout"></div>
  
-                    <!-- (B) LEGEND -->
+                    <!-- LEGEND -->
                     <div id="legend">
                         <div class="seat"></div> <div class="txt">Available</div>
                         <div class="seat taken"></div> <div class="txt">Taken</div>
@@ -81,7 +81,7 @@
                             
                     </div>
                     <br>
-                    
+                    <!-- SAVE SELECTION -->
                     <button id="save" onclick="reserve.save()">Add to Cart</button>
                 </div>
                 <div class="show-right-content">
@@ -92,17 +92,17 @@
     </body>
     <script>
         var reserve = {
-            // (A) INIT
+            // INIT
             init : () => {
-                // (A1) GET LAYOUT WRAPPER
+                // GET LAYOUT WRAPPER
                 let layout = document.getElementById("layout");
             
-                // (A2) GENERATE SEATS
+                // GENERATE SEATS
                 for (let i=65; i<=69; i++) { for (let j=1; j<=8; j++) {
                 let seat = document.createElement("div");
                 seat.innerHTML = String.fromCharCode(i) + j;
                 seat.className = "seat";
-
+                   
                 seat.onclick = () => { reserve.toggle(seat); };
                 layout.appendChild(seat);
                 }}
@@ -177,8 +177,9 @@
                 })
                 .then(res => res.text())
                 .then((res) => { console.log(res); });
-                }
                 location.href = "http://localhost:8000/IE4717/IE4717_MiniProject/IE4717/Homepage.html";
+                }
+                
             }
         };
  
