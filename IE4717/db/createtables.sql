@@ -48,8 +48,7 @@ create table enquiries
 	enqType char(30) not null,
 	enqDate date not null,
 	enqDesc text not null
-)
-
+);
 create table shoppingCart
 (
 	customerName char(50) not null,
