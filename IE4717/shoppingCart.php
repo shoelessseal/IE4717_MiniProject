@@ -31,6 +31,7 @@
                 <div class="nav-links">
                     <a href="Homepage.html" class="selected">Home</a>
                     <a href="cinemalocation.html" > Cinema Location</a>
+                    <a href="#" class="selected"> Cart</a>
                     <a href="CheckingBooking.php" > Check Booking</a>
                     <a href="contactus.html" > Contact us</a>
                 </div>
@@ -93,7 +94,7 @@
                 return false;
             } 
                 else {
-                alert("Item Added to Cart");
+                alert("Purchase completed.\nA confirmation email has been sent.\nClick ok to proceed to homepage.");
                 let data = new FormData();
                 data.append("email", email);
                 data.append("name", name);
@@ -104,6 +105,7 @@
                 })
                 .then(res => res.text())
                 .then((res) => { console.log(res); });
+                location.href = "http://localhost:8000/IE4717/IE4717_MiniProject/IE4717/Homepage.html";
                 return true;
             }
         }

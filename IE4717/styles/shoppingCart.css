@@ -129,4 +129,12 @@ th {
     font-weight: bold;
     border-radius: 10px;
 }
+.procceedToPaymentBtn{
+  background-color: #e45d31;
+  margin-left: 400px;
+  color: #ffffff;
+  padding: 8px;
+  font-weight: bold;
+  border-radius: 10px;
+}
 

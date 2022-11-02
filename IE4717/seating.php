@@ -42,6 +42,7 @@
                 <div class="nav-links">
                     <a href="Homepage.html" class="selected">Home</a>
                     <a href="cinemalocation.html" > Cinema Location</a>
+                    <a href="shoppingCart.php"> Cart</a>
                     <a href="CheckingBooking.php" > Check Booking</a>
                     <a href="contactus.html" > Contact us</a>
                 </div>
@@ -145,6 +146,7 @@
                 //SELECTED SEATS
                 else {
                 //GET SELECTED SEAT NUMBERS
+                alert("Item added to cart.\n Click ok to proceed to homepage.");
                 let seats = [];
                 for (let s of selected) { seats.push(s.innerHTML); }
                 
