@@ -1,5 +1,28 @@
 <?php
-    print_r($_POST);
+    session_start();
+    
+    if(!isset($_SESSION['seats'])){
+        $_SESSION['seats'] = array();
+    }
+    if(!isset($_SESSION['addToCartDate'])){
+        $_SESSION['addToCartDate'] = array();
+    }
+    if(!isset($_SESSION['showDate'])){
+        $_SESSION['showDate'] = array();
+    }
+    if(!isset($_SESSION['totalPrice'])){
+        $_SESSION['totalPrice'] = array();
+    }
+    if(!isset($_SESSION['locationAndTime'])){
+        $_SESSION['locationAndTime'] = array();
+    }
+    if(!isset($_SESSION['movieName'])){
+        $_SESSION['movieName'] = array();
+    }
+    if(!isset($_SESSION['ticketQty'])){
+        $_SESSION['ticketQty'] = array();
+    }
+
     $seats = $_POST["seats"];
     $addToCartDate = $_POST["addToCartDate"];
     $showDate = $_POST["showDate"];
@@ -8,24 +31,27 @@
     $movieName = $_POST["movieName"];
     $ticketQty = $_POST["ticketQty"];
 
-    $servername = "localhost";
-    $username = "f32ee";
-    $password = "f32ee";
-    $dbname = "JKLC";
+    $seats = str_replace("\"", "", $seats);
+    $seats = str_replace("[", "", $seats);
+    $seats = str_replace("]", "", $seats);
+    //push to array
+    array_push( $_SESSION['seats'], $_POST["seats"]);
+    array_push( $_SESSION['addToCartDate'], $_POST["addToCartDate"]);
+    array_push( $_SESSION['showDate'], $_POST["showDate"]);
+    array_push( $_SESSION['totalPrice'], $_POST["totalPrice"]);
+    array_push( $_SESSION['locationAndTime'], $_POST["locationAndTime"]);
+    array_push( $_SESSION['movieName'], $_POST["movieName"]);
+    array_push( $_SESSION['ticketQty'], $_POST["ticketQty"]);
 
-    @ $db = new mysqli($servername, $username, $password, $dbname);
-    if (mysqli_connect_error()) {
-        echo "Error: Could not connect to database.  Please try again later.";
-        exit;
-    }    
+    $seatArr = explode(",", $seats);
+
     
-    $query = "INSERT into shoppingCart values
-        ('NULL', '".$movieName."', '".$locationAndTime."', '".$showDate."', '".$seats."', '".$ticketQty."', '".$totalPrice."')";
-    $result = $db->query($query);
-    if ($result) {
-        echo  $db->affected_rows." order inserted into database.";
-    } else {
-        echo "An error has occurred.  The item was not added.";
+
+    for($i = 0; $i < count($seatArr); $i++){
+        $query = "INSERT into seatings values
+        ('".$movieName."', '".$locationAndTime."', '".$seatArr[$i]."')";
+        $result = $db->query($query);
     }
+    
     $db->close();
 ?>

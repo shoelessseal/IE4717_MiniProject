@@ -20,21 +20,26 @@
             exit;
         }
 
-        print_r($_POST);
-
         $QTY = $_POST["Qty"];
         $locationAndTime = $_POST["TimeSlotRadio"];
+        $movieName = $_POST["movieName"];
 
-        $query_get = "SELECT price FROM movies WHERE movieName= 'Black Adam'";
+        $query_get = "SELECT price FROM movies WHERE movieName= '".$movieName."'";
         $query_result  = mysqli_query($db, $query_get);
         $ticketPrice  = mysqli_fetch_array($query_result);
         $totalPrice = floatval($ticketPrice[0]) * intval($QTY);
         
-        $query_get = "SELECT image_PathLocation FROM movies WHERE movieName= 'Black Adam'";
+        $query_get = "SELECT image_PathLocation FROM movies WHERE movieName= '".$movieName."'";
         $query_result  = mysqli_query($db, $query_get);
         $img_path  = mysqli_fetch_array($query_result);
         
-        
+        $query_get = "SELECT seatID FROM seatings WHERE movieName= '".$movieName."'AND locationAndTime ='".$locationAndTime."' ";
+        $query_result  = mysqli_query($db, $query_get);
+        $takenSeats  = array();
+        foreach ($query_result as $result_value) {
+            array_push($takenSeats, $result_value["seatID"]);
+        }
+
         ?>
         <header>
             <nav>
@@ -74,12 +79,13 @@
                         <div class="seat selected"></div> <div class="txt">Your Chosen Seats</div>
                     </div>
                     <br>
-                    <div class="priceContainer" style="margin-left: 95px">
+                    <div class="priceContainer" style="margin-left: 95px; font-size: 150%;">
+                        <b>
                             <div class="child-element" style="float: left">Total Price: $</div>
                                 <div id="totalPrice" class="child-element" style="float: left">
                                     <?php echo $totalPrice; ?>
                                 </div>
-                            
+                        </b>        
                     </div>
                     <br>
                     <!-- SAVE SELECTION -->
@@ -99,26 +105,31 @@
                 let layout = document.getElementById("layout");
             
                 // GENERATE SEATS
-                for (let i=65; i<=69; i++) { for (let j=1; j<=8; j++) {
-                let seat = document.createElement("div");
-                seat.innerHTML = String.fromCharCode(i) + j;
-                seat.className = "seat";
+                for (let i=65; i<=69; i++) { 
+                    for (let j=1; j<=8; j++) {
+                        let seat = document.createElement("div");
+                        seat.innerHTML = String.fromCharCode(i) + j;
+                        seat.className = "seat";
                    
-                seat.onclick = () => { reserve.toggle(seat); };
-                layout.appendChild(seat);
-                }}
-            
-                //RANDOM TAKEN SEATS
-                let all = document.querySelectorAll("#layout .seat"),
-                    len = all.length - 1, rnd = [];
-                while (rnd.length != 3) {
-                let r = Math.floor(Math.random() * len);
-                if (!rnd.includes(r)) { rnd.push(r); }
+                        seat.onclick = () => { reserve.toggle(seat); };
+                        layout.appendChild(seat);
+                    }
                 }
-                for (let i of rnd) {
-                all[i].classList.add("taken");
-                all[i].onclick = "";
-                }
+                
+                
+                // TAKEN SEATS
+                let all = document.querySelectorAll("#layout .seat");
+
+                var takenSeatsArr = <?php echo json_encode($takenSeats); ?>
+
+                for (var x = 0; x < takenSeatsArr.length; x++) {
+                    for(var y = 0; y < all.length; y ++){
+                        if(takenSeatsArr[x] === all[y].innerText){
+                            all[y].classList.add("taken");
+                            all[y].onclick = "";
+                        }
+                    } 
+                }      
             },
             
             //CHOOSE THIS SEAT

@@ -8,23 +8,6 @@
         <link rel="stylesheet" href="http://localhost:8000/IE4717/IE4717_MiniProject/IE4717/styles/shoppingCart.css">
     </head>
     <body>
-        <?php
-        $servername = "localhost";
-        $username = "f32ee";
-        $password = "f32ee";
-        $dbname = "JKLC";
-
-        @ $db = new mysqli($servername, $username, $password, $dbname);
-        if (mysqli_connect_error()) {
-            echo "Error: Could not connect to database.  Please try again later.";
-            exit;
-        }
-
-        $query_get = "SELECT movieName, locationAndTime, showDate, Seats, ticketQty, totalPrice from shoppingCart";
-        $query_result  = mysqli_query($db, $query_get);
-
-        $db->close();
-        ?>
         <header>
             <nav>
                 <h1 class="nav-heading">JKL Cinema</h1>
@@ -54,19 +37,70 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <?php
-                            while($row = $query_result->fetch_assoc()){
-                                echo "<tr>
-                                <td>".$row["movieName"]."</td>
-                                <td>".$row["locationAndTime"]."</td>
-                                <td>".$row["showDate"]."</td>
-                                <td>".$row["Seats"]."</td>
-                                <td>".$row["ticketQty"]."</td>
-                                <td>".$row["totalPrice"]."</td>
-                                <td><input class='deleteBtn' type='button' value='Delete' onclick='deleteRow(this)'></td>
-                            </tr>";
-                            }
-                        ?>
+                        <tbody>
+                            <?php
+                                session_start();
+                                if(isset($_SESSION["seats"])){
+                                    $seats = $_SESSION["seats"];
+                                }
+                                else{
+                                    $seats = array();
+                                }
+                                if(isset($_SESSION["addToCartDate"])){
+                                    $addToCartDate = $_SESSION["addToCartDate"];
+                                }
+                                else{
+                                    $addToCartDate = array();
+                                }
+                                if(isset($_SESSION["showDate"])){
+                                    $showDate = $_SESSION["showDate"];
+                                }
+                                else{
+                                    $showDate = array();
+                                }
+                                if(isset($_SESSION["totalPrice"])){
+                                    $totalPrice = $_SESSION["totalPrice"];
+                                }
+                                else{
+                                    $totalPrice = array();
+                                }
+                                if(isset($_SESSION["locationAndTime"])){
+                                    $locationAndTime = $_SESSION["locationAndTime"];
+                                }
+                                else{
+                                    $locationAndTime = array();
+                                }
+                                if(isset($_SESSION["movieName"])){
+                                    $movieName = $_SESSION["movieName"];
+                                }
+                                else{
+                                    $movieName = array();
+                                }
+                                if(isset($_SESSION["ticketQty"])){
+                                    $ticketQty = $_SESSION["ticketQty"];
+                                }
+                                else{
+                                    $ticketQty = array();
+                                }
+
+                                $seats = str_replace("\"", "", $seats);
+                                $seats = str_replace("[", "", $seats);
+                                $seats = str_replace("]", "", $seats);
+                                $seats = str_replace(",", ", ", $seats);
+
+                                for($i = 0; $i <count($movieName); $i++){
+                                    echo "<tr>
+                                    <td>".$movieName[$i]."</td>
+                                    <td>".$locationAndTime[$i]."</td>
+                                    <td>".$showDate[$i]."</td>
+                                    <td>".$seats[$i]."</td>
+                                    <td>".$ticketQty[$i]."</td>
+                                    <td>".$totalPrice[$i]."</td>
+                                    <td><input class='deleteBtn' type='button' value='Delete' onclick='deleteRow(this)'></td>
+                                </tr>";
+                                }
+                            ?>
+                        </tbody>
                     </table>
                     <br>
                     <label for="name" style="margin-left: 10px">*Name: </label>
@@ -74,8 +108,8 @@
                     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     <label for="">*Email: </label>
                     <input id="email" type="email" name="email" placeholder="Enter your Email-ID here" required/>
-                    <br>
-                    <input class="procceedToPaymentBtn" type="button" value="Proceed to Payment" onclick="test()">
+                    <br><br>
+                    <input class="procceedToPaymentBtn" type="button" value="Proceed to Payment" onclick="test()" style="margin-left: 600px;">
                 </div>
             </div>
         </main>
@@ -90,10 +124,11 @@
                 alert("Email format wrong.");
                 return false;
             } else if (!name.match(/^[A-Za-z\s]+$/)) {
-                alert("Only letters are allowed for your name");
+                alert("Only letters are allowed for your name.");
                 return false;
-            } 
-                else {
+            } else if(document.querySelectorAll('#cartTable tbody tr').length <= 0){
+                alert("Shopping Cart is empty.");
+            }  else {
                 alert("Purchase completed.\nA confirmation email has been sent.\nClick ok to proceed to homepage.");
                 let data = new FormData();
                 data.append("email", email);
@@ -105,7 +140,7 @@
                 })
                 .then(res => res.text())
                 .then((res) => { console.log(res); });
-                location.href = "http://localhost:8000/IE4717/IE4717_MiniProject/IE4717/Homepage.html";
+                //location.href = "http://localhost:8000/IE4717/IE4717_MiniProject/IE4717/Homepage.html";
                 return true;
             }
         }

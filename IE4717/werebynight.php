@@ -207,6 +207,8 @@
                             <label for="Qty">Number of Tickets: </label>
                             <input type="number" id="Qty" name="Qty" maxlength="2" value="0" min="0" oninput= "this.value = Math.abs(this.value)">
                         </div><br><br>
+                        <div style="display: none;"><input type="text" name = "movieName" id = "movieName" value = "Werewolf by Night"></div>
+                        
                         <input type="submit" value="Buy Tickets" class="buyTickets" href="#" class="shows-buy-ticket">
                     </form>
                 </div>

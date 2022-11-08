@@ -4,10 +4,11 @@ create table confirmedPurchases
 	customerName char(50) not null,
 	customerEMAIL char(50) not null,
 	datePurchased date not null,
-	blackAdamQty int unsigned,
-	topGunQty int unsigned,
-	spiderManQty int unsigned,
-	wereWolfQty int unsigned ,
+	movieName char(50) not null,
+	locationAndTime char(75) not null,
+	showDate date not null,
+	Seats char(80) not null,
+	ticketQty int unsigned,
 	totalPrice float(4,2) not null
 );
 create table movies
@@ -49,13 +50,9 @@ create table enquiries
 	enqDesc text not null
 );
 
-create table shoppingCart
-(
-	itemID int unsigned not null auto_increment primary key,
+create table seatings
+(	
 	movieName char(50) not null,
 	locationAndTime char(75) not null,
-	showDate date not null,
-	Seats char(80) not null,
-	ticketQty int unsigned not null,
-	totalPrice float(4,2) not null 
+	seatID char(4)
 )
