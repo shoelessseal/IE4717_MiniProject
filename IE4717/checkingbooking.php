@@ -27,10 +27,11 @@
             <nav>
                 <h1 class="nav-heading">JKL Cinema</h1>
                 <div class="nav-links">
-                    <a href="homepage.html" >Home</a>
-                <a href="cinemalocation.html" > Cinema Location</a>
-                <a href="checkbooking.html" class="selected"> Check Booking</a>
-                <a href="contactus.html" > Contact us</a>
+                    <a href="Homepage.html" >Home</a>
+                    <a href="cinemalocation.html" > Cinema Location</a>
+                    <a href="shoppingCart.php" > Cart</a>
+                    <a href="checkbooking.html" class="selected" > Check Booking</a>
+                    <a href="contactus.html" > Contact us</a>
                 </div>
             </nav>
         </header>

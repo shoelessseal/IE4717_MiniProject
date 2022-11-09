@@ -25,12 +25,6 @@ create table movies
 	duration int not null,
 	synopsis text not null
 );
-create table locations
-(	
-	locationID int unsigned not null auto_increment primary key,
-	locationName varchar(1024) not null,
-	map_PathLocation varchar(1024) not null
-);
 create table timeSlots
 (	
 	movieID int unsigned not null auto_increment primary key,

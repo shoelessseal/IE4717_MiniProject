@@ -140,8 +140,9 @@
                 })
                 .then(res => res.text())
                 .then((res) => { console.log(res); });
+                location.href = "http://localhost:8000/IE4717/IE4717_MiniProject/IE4717/Homepage.html" ;
                 return true;
-                location.href = "http://localhost:8000/IE4717/IE4717_MiniProject/IE4717/Homepage.html";
+                
             }
         }
 
