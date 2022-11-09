@@ -1,3 +1,18 @@
+<?php
+    $servername = "localhost";
+    $username = "f32ee";
+    $password = "f32ee";
+    $dbname = "JKLC";
+
+    @ $db = new mysqli($servername, $username, $password, $dbname);
+    if (mysqli_connect_error()) {
+         echo "Error: Could not connect to database.  Please try again later.";
+         exit;
+    }
+    
+    $db->close();
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +20,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FYP project</title>
-    <link rel="stylesheet" href="styles/shoppingCart.css">
+    <link rel="stylesheet" href="http://localhost:8000/IE4717/IE4717_MiniProject/IE4717/styles/checkbooking.css">
 </head>
 <body>
         <header>

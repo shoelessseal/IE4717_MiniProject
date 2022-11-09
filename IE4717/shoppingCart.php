@@ -12,7 +12,7 @@
             <nav>
                 <h1 class="nav-heading">JKL Cinema</h1>
                 <div class="nav-links">
-                    <a href="Homepage.html" class="selected">Home</a>
+                    <a href="Homepage.html" >Home</a>
                     <a href="cinemalocation.html" > Cinema Location</a>
                     <a href="#" class="selected"> Cart</a>
                     <a href="checkbooking.html" > Check Booking</a>
