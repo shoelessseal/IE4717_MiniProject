@@ -15,7 +15,7 @@
                     <a href="Homepage.html" class="selected">Home</a>
                     <a href="cinemalocation.html" > Cinema Location</a>
                     <a href="#" class="selected"> Cart</a>
-                    <a href="CheckingBooking.php" > Check Booking</a>
+                    <a href="checkbooking.html" > Check Booking</a>
                     <a href="contactus.html" > Contact us</a>
                 </div>
             </nav>
@@ -109,7 +109,7 @@
                     <label for="">*Email: </label>
                     <input id="email" type="email" name="email" placeholder="Enter your Email-ID here" required/>
                     <br><br>
-                    <input class="procceedToPaymentBtn" type="button" value="Proceed to Payment" onclick="test()" style="margin-left: 600px;">
+                    <input class="procceedToPaymentBtn" type="button" value="Proceed to Payment" onclick="test()" style="float: right;">
                 </div>
             </div>
         </main>
@@ -140,8 +140,8 @@
                 })
                 .then(res => res.text())
                 .then((res) => { console.log(res); });
-                //location.href = "http://localhost:8000/IE4717/IE4717_MiniProject/IE4717/Homepage.html";
                 return true;
+                location.href = "http://localhost:8000/IE4717/IE4717_MiniProject/IE4717/Homepage.html";
             }
         }
 

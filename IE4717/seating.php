@@ -48,7 +48,7 @@
                     <a href="Homepage.html" class="selected">Home</a>
                     <a href="cinemalocation.html" > Cinema Location</a>
                     <a href="shoppingCart.php"> Cart</a>
-                    <a href="CheckingBooking.php" > Check Booking</a>
+                    <a href="checkbooking.html" > Check Booking</a>
                     <a href="contactus.html" > Contact us</a>
                 </div>
             </nav>

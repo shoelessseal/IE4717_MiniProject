@@ -89,7 +89,9 @@ echo ("mail set to:" .$to);
 mail($to, $subject, $message, $headers);
 
 
-$date = date('yyyy-mm-dd');
+$date = date('y-m-d');
+
+print_r($date);
 
 for($j = 0; $j < count($movieName); $j++){
     $insert = "INSERT into confirmedPurchases values

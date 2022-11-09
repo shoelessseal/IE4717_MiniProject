@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FYP project</title>
+    <link rel="stylesheet" href="styles/checkbooking.css">
+</head>
+<body>
+        <header>
+            <nav>
+                <h1 class="nav-heading">JKL Cinema</h1>
+                <div class="nav-links">
+                    <a href="homepage.html" >Home</a>
+                <a href="cinemalocation.html" > Cinema Location</a>
+                <a href="checkbooking.html" class="selected"> Check Booking</a>
+                <a href="contactus.html" > Contact us</a>
+                </div>
+            </nav>
+        </header>
+        <main class="mainclasscontainer">
+            <div class="leftsidecontainer">
+              <h2 style=" font-size: xx-large">Check movie bookings</h2>
+              <br>
+              <div class="fields">
+                <form action="checkingbooking.php" method="POST" onsubmit="">
+                    <label for="name" style="margin-left: 10px">*Name: </label>
+                    <input id="name" type="text" name="name" required placeholder="Enter your name here"/>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <label for="">*Email: </label>
+                    <input id="email" type="email" name="email" placeholder="Enter your Email-ID here" required/>
+                    <br><br>
+                    <input class="proceedToCheckBooking" type="submit" value="Check Bookings" onclick="test()" style="margin-left: 600px;">
+                </form>
+              </div>
+                
+            </div>
+          </main>
+</body>
+<script>
+    function test() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            if (
+                !email.match(/^[\w.-]+@[\w]/)
+            ) {
+                alert("Email format wrong.");
+                return false;
+            } else if (!name.match(/^[A-Za-z\s]+$/)) {
+                alert("Only letters are allowed for your name.");
+                return false;
+            } else{
+                return true;
+            }
+        }
+</script>
