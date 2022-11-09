@@ -43,15 +43,5 @@
     array_push( $_SESSION['movieName'], $_POST["movieName"]);
     array_push( $_SESSION['ticketQty'], $_POST["ticketQty"]);
 
-    $seatArr = explode(",", $seats);
-
-    
-
-    for($i = 0; $i < count($seatArr); $i++){
-        $query = "INSERT into seatings values
-        ('".$movieName."', '".$locationAndTime."', '".$seatArr[$i]."')";
-        $result = $db->query($query);
-    }
-    
     $db->close();
 ?>

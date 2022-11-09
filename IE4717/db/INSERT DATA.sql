@@ -55,7 +55,7 @@ insert into timeSlots values
     (NULL, "Werewolf by Night", "WestMall", 1900, 2130);
 
 insert into seatings values
-    ("Black Adam", "CauseWay Point: 1300~1510", "A2"),
-    ("Black Adam", "CauseWay Point: 1300~1510", "B2"),
-    ("Black Adam", "CauseWay Point: 1300~1510", "C2"),
-    ("Black Adam", "CauseWay Point: 1300~1510", "D2");
+    (NULL, "Black Adam", "CauseWay Point: 1300~1510", "A2"),
+    (NULL, "Black Adam", "CauseWay Point: 1300~1510", "B2"),
+    (NULL, "Black Adam", "CauseWay Point: 1300~1510", "C2"),
+    (NULL, "Black Adam", "CauseWay Point: 1300~1510", "D2");

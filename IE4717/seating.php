@@ -57,7 +57,7 @@
             <div class="show-content">
                 <div class="show-left-panel">
                     <h1 class="movie-title">
-                        Black Adam
+                        <?php echo $movieName; ?>
                     </h1>
                     <h2>Seat Selection:</h2>
                     <br>
@@ -167,6 +167,7 @@
                 totalPrice - parseFloat(totalPrice);
                 let locationAndTime = document.getElementById("locationAndTime").textContent;
                 locationAndTime = locationAndTime.trim();  
+                let movieName = <?php echo json_encode($movieName); ?>;
                 //get today's date
                 var today= new Date();
                 // Get year, month, and day part from the date
@@ -183,7 +184,7 @@
                 data.append("ticketQty", count);
                 data.append("totalPrice", totalPrice);
                 data.append("locationAndTime", locationAndTime);
-                data.append("movieName", "Black Adam");
+                data.append("movieName", movieName);
                 fetch("AddToCart.php", {
                     method: "POST",
                     body : data

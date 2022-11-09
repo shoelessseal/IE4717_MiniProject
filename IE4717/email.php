@@ -93,15 +93,33 @@ $date = date('yyyy-mm-dd');
 
 for($j = 0; $j < count($movieName); $j++){
     $insert = "INSERT into confirmedPurchases values
-    ('NULL', '".$name."', '".$email."', '".$date."', '".$movieName[$j]."', '".$locationAndTime[$j]."', '".$showDate[$j]."', '".$seats[$j]."', '".$ticketQty[$j]."', '".$TotalPrice[$j]."')"; 
+    ('NULL', '".$name."', '".$email."', '".$date."', '".$movieName[$j]."', '".$locationAndTime[$j]."', '".$showDate[$j]."', '".$seats[$j]."', '".$ticketQty[$j]."', '".$totalPrice[$j]."')"; 
     
-$result = $db->query($insert);
-if ($result) {
-     echo  $db->affected_rows." order inserted into database.";
-} else {
-    echo "An error has occurred.  The item was not added.";
+    $result = $db->query($insert);
+    if ($result) {
+        echo  $db->affected_rows." order inserted into database.";
+    } else {
+        echo "An error has occurred.  The item was not added.";
+    }
+
+    $seatArr = explode(", ", $seats[$j]);
+
+    print_r($seatArr);
+
+    for($x = 0; $x < count($seatArr); $x++){
+        $query = "INSERT into seatings values
+        ('NULL', '".$movieName[$j]."', '".$locationAndTime[$j]."', '".$seatArr[$x]."')";
+        $result = $db->query($query);
+        if ($result) {
+            echo  $db->affected_rows." seats inserted into database.";
+        } else {
+            echo "An error has occurred.  The item was not added.";
+        }
+    }
+    
 }
-}
+
+
 $db->close();
 session_unset();
 session_destroy();

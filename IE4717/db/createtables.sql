@@ -52,6 +52,7 @@ create table enquiries
 
 create table seatings
 (	
+	enqID int unsigned not null auto_increment primary key,
 	movieName char(50) not null,
 	locationAndTime char(75) not null,
 	seatID char(4)
