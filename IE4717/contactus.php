@@ -22,7 +22,7 @@
             $sql = "INSERT INTO enquiries VALUES
                 ('NULL', '".$username."','".$contactNo."','".$email."','".$enqType."', '".$date."', '".$Desc."')";
 
-            echo $sql;
+            echo "Enquires sent, we will contact you shortly";
             $db -> query($sql) ;
             
             $db->close();

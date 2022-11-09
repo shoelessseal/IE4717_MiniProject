@@ -122,14 +122,8 @@ td {
 th {
   background-color: #e45d31;
 }
-.deleteBtn {
-  background-color: #e45d31;
-  color: #ffffff;
-  padding: 8px;
-  font-weight: bold;
-  border-radius: 10px;
-}
-.procceedToPaymentBtn {
+
+.Checkbookingbtn {
   background-color: #e45d31;
   color: #ffffff;
   padding: 8px;
